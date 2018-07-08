@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>编辑数据</title>
+		<link rel='stylesheet' type="text/css" href="../css/register.css"/>
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript">
+			var num=window.location.search.slice(window.location.search.lastIndexOf('?')+1,window.location.search.lastIndexOf('&'));
+			var user=decodeURI(window.location.search.slice(window.location.search.lastIndexOf('&')+1));
+			var sex;
+
+			$(function(){
+				document.getElementById('txtNum').value=num;
+			})
+
+			function man(){
+				sex='男';
+			}
+
+			function woman(){
+				sex='女';
+			}
+
+			function edit(){
+				var obj=new Object();
+				obj.id=num;
+				obj.username=document.getElementById('txtName').value;
+			//	obj.sex=sex;
+				obj.password=document.getElementById('txtPassword').value;
+			//	obj.email=document.getElementById('txtEmail').value;
+			//	obj.phone=document.getElementById('txtPhone').value;
+				doData('/UsersSystem/user?method=edit',obj,function(data){
+					if(data.message==true){
+						window.location.href='dosql.html?'+user;
+					}
+					else{
+						alert('编辑失败');
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<h1>编辑数据</h1>
+			<div class="container">
+				<div class="user">
+					<div><span>Num:</span></div>
+					<input type="text" id="txtNum" disabled="disabled" autocomplete="off"/>
+				</div>
+				<div class="user">
+					<div><span>用户名:</span></div>
+					<input type="text" id="txtName" autocomplete="off" placeholder="请输入用户名"/>
+				</div>
+				<div class="sex">
+					<div class="header">
+						<span>性别</span>
+					</div>
+					<div class="radio">
+						<input type="radio" name="sex" onclick="man()">男
+						<input type="radio" name="sex" onclick="woman()">女
+					</div>
+				</div>
+				<div class="user">
+					<div><span>密码:</span></div>
+					<input type="password" id="txtPassword" placeholder="请输入密码"/>
+				</div>
+				<div class="user">
+					<div><span>邮箱:</span></div>
+					<input type="text" id="txtEmail" autocomplete="off" placeholder="请输入邮箱地址"/>
+				</div>
+				<div class="user">
+					<div><span>联系电话:</span></div>
+					<input type="text" id="txtPhone" autocomplete="off" placeholder="请输入联系电话"/>
+				</div>
+				<div class="user">
+					<input type="button" onclick="edit()" value="提交编辑"/>
+				</div>
+				<div class="user">
+					<input type="button" onclick="window.location.href='dosql.html?'+user" value="返回"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

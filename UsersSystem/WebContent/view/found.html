@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>忘记密码</title>
+		<link rel='stylesheet' type="text/css" href="../css/login.css"/>
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript">
+			function found(){
+				var obj=new Object();
+				obj.name=document.getElementById('txtName').value;
+				obj.password=document.getElementById('txtPassword').value;
+				doData('../control/foundVal.php',obj,function(data){
+					if(data.message==true){
+						window.location.href='login.html';
+					}
+					else{
+						alert('提交失败');
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<h1>忘记密码</h1>
+			<div class="container">
+				<div class="user">
+					<div><span>用户名:</span></div>
+					<input type="text" id="txtName" autocomplete="off" placeholder="请输入用户名"/>
+				</div>
+				<div class="user">
+					<div><span>密码:</span></div>
+					<input type="password" id="txtPassword" placeholder="请输入密码"/>
+				</div>
+				<div class="user">
+					<div><span>确认密码:</span></div>
+					<input type="password" id="txtRePassword" placeholder="请重新输入密码"/>
+				</div>
+				<div class="user">
+					<input type="button" onclick="found()" value="提交"/>
+				</div>
+				<div class="user">
+					<input type="button" onclick="window.location.href='login.html'" value="返回"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

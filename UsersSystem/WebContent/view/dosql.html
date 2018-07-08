@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<title>后台管理系统</title>
+		<link rel='stylesheet' type="text/css" href="../css/font-awesome.min.css"/>
+		<link rel='stylesheet' type="text/css" href="../css/dosql.css"/>
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript" src="../js/dosql.js"></script>
+		<script type="text/javascript" src="../js/dosqlNav.js"></script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="header-title">
+				<h1>用户管理系统</h1>
+			</div>
+			<div class="user-wrap">
+				<div class="name">
+					<span class="fa fa-user"></span>
+					<span class="user"></span>
+				</div>
+				<input type="button" onclick="window.location.href='login.html'" value="退出登录"/>
+			</div>
+		</div>
+		<div class="container">
+			<div class="container-left">
+				<div class="nav">
+					<ul>
+						<li class="nav-list first" id="welcome">欢迎页</li>
+						<li class="nav-list">用户信息管理</li>
+						<ul class="dropdown">
+							<li class="dropdown-list" id='userInfo'>用户信息表</li>
+						</ul>
+						<li class="nav-list">管理员信息管理</li>
+						<ul class="dropdown">
+							<li class="dropdown-list">管理员信息表</li>
+						</ul>
+						<li class="nav-list">其他设置</li>
+					</ul>
+				</div>
+			</div>
+			<div class="container-right" id="data-wrap">
+				<h1 class='wel-1'>欢迎登录后台管理系统</h1>
+				<h2 class='wel-2'>在这里，您可以管理您的用户信息</h2>
+				<h2 class='wel-3'>当前时间:</h2>
+				<h2 class='wel-4' id='date'></h2>
+			</div>
+		</div>
+		<div class="footer">
+			<p>世界职业技能大赛</p>
+		</div>
+	</body>
+</html>
